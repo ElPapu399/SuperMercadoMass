@@ -98,9 +98,9 @@ El frontend contiene la landing page premium con tarjetas de información, valid
 
 Si deseas conectar el backend a una base de datos MySQL real para verificar las credenciales y cumplir con el flujo completo de base de datos:
 
-1. **Importa la estructura:** Ejecuta el archivo [schema.sql](file:///c:/Users/warsh/Programacion/SuperMercadoMass/backend/schema.sql) en tu gestor de base de datos MySQL (phpMyAdmin, Workbench, o CLI) para crear la base de datos `supermercado_mass` y la tabla `usuarios` poblada.
-2. **Crear archivo de entorno:** En la carpeta `backend/`, duplica el archivo `.env.example` y cámbiale el nombre a `.env`.
-3. **Configura el entorno:** Abre el nuevo archivo [backend/.env](file:///c:/Users/warsh/Programacion/SuperMercadoMass/backend/.env) y asegúrate de que los valores coincidan con tu servidor MySQL:
+1. **Importa la estructura:** Ejecuta el archivo [schema.sql] en tu gestor de base de datos MySQL (phpMyAdmin, Workbench, o CLI) para crear la base de datos `supermercado_mass` y la tabla `usuarios` poblada.
+2. **Crear archivo de entorno:** En la carpeta `backend/` crea un archivo y ponle de nombre `.env`.
+3. **Configura el entorno:** Abre el nuevo archivo [backend/.env] y asegúrate de que los valores coincidan con tu servidor MySQL:
    ```env
    DB_HOST=localhost
    DB_USER=root
