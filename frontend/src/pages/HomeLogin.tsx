@@ -118,7 +118,7 @@ export default function HomeLogin() {
             </div>
 
             {/* Sección Principal Dual */}
-            <section className="flex-1 max-w-8xl w-full mx-auto px-10 py-8 md:py- grid grid-cols-1 lg:grid-cols-12 gap-11 lg:gap-15 items-center z-10 relative">
+            <section className="flex-1 max-w-7xl w-full mx-auto px-10 py-8 md:py- grid grid-cols-1 lg:grid-cols-12 gap-11 lg:gap-15 items-center z-10 relative">
 
                 {/* Lado Izquierdo: Información del Sistema */}
                 <div className="lg:col-span-7 text-left space-y-8">
