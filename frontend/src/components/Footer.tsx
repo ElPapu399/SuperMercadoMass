@@ -9,16 +9,16 @@ export default function Footer() {
     const navigate = useNavigate();
 
     return (
-        <footer className="bg-blue-950 text-white mt-20 shadow-inner shadow-gray-200">
-            <div className="max-w-6xl mx-auto px-6 py-16">
+        <footer className="bg-blue-950 text-white mt-20 sm:mt-25 shadow-inner shadow-gray-200">
+            <div className="max-w-5xl mx-auto px-13 py-11">
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-22 mb-8">
 
                     <div>
-                        <div className="flex items-center gap-2 mb-4">
-                            <h3 className="font-bold text-2xl">MASS</h3>
+                        <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-bold text-3xl">MASS</h3>
                         </div>
-                        <p className="text-gray-400 leading-relaxed text-sm">
+                        <p className="text-gray-400 leading-relaxed text-[19px]">
                             MiniSupermercado y ya.
                         </p>
                     </div>
@@ -51,7 +51,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-700 pt-8">
+                <div className="border-t border-gray-700 pt-6">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <p className="text-gray-400 text-sm mb-4 md:mb-0">
                             © 2024 Mass. Todos los derechos reservados.

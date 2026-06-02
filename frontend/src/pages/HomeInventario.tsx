@@ -134,12 +134,12 @@ export default function HomeInventario() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-200 to-orange-400 text-slate-800 flex flex-col">
       {/* Navbar Superior Premium */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src={logoMass} alt="Logo Mass" className="h-12 w-auto object-contain" />
+            <img src={logoMass} alt="Logo Mass" className="h-24 w-auto object-contain" />
             <div className="h-8 w-px bg-slate-300 hidden sm:block"></div>
             <span className="text-xl font-bold tracking-tight text-slate-900 hidden sm:block">
               Inventory Control
@@ -173,10 +173,10 @@ export default function HomeInventario() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Banner de Bienvenida */}
-        <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-slate-900 rounded-3xl p-6 sm:p-8 md:p-10 text-white shadow-lg mb-8 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-800 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 md:p-10 text-white shadow-lg mb-8 relative overflow-hidden">
           <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-y-12 translate-x-12">
             <FontAwesomeIcon icon={faBoxesStacked} className="text-[200px] text-white" />
           </div>
@@ -194,27 +194,27 @@ export default function HomeInventario() {
         </div>
 
         {/* Módulos / Estadísticas Rápidas */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Card 1: Total Stock */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5">
+          <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5">
             <div className="p-4 rounded-xl bg-blue-50 text-blue-600">
               <FontAwesomeIcon icon={faBoxesStacked} className="text-2xl" />
             </div>
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Productos Totales</p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">{totalProductos}</h3>
+              <h3 className="text-[25px] font-bold text-slate-900 mt-1">{totalProductos}</h3>
               <p className="text-xs text-blue-600 font-medium mt-1">Registrados en sistema</p>
             </div>
           </div>
 
           {/* Card 2: Stock Crítico */}
-          <div className={`bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5 ${stockBajo > 0 ? "border-l-4 border-l-orange-500" : ""}`}>
+          <div className={`bg-white rounded-3xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5 ${stockBajo > 0 ? "border-l-4 border-l-orange-500" : ""}`}>
             <div className={`p-4 rounded-xl ${stockBajo > 0 ? "bg-orange-50 text-orange-600" : "bg-slate-50 text-slate-600"}`}>
               <FontAwesomeIcon icon={faTriangleExclamation} className="text-2xl" />
             </div>
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Stock Bajo Mínimo</p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">{stockBajo}</h3>
+              <h3 className="text-[25px] font-bold text-slate-900 mt-1">{stockBajo}</h3>
               <p className={`text-xs font-medium mt-1 ${stockBajo > 0 ? "text-orange-600 font-semibold" : "text-slate-50"}`}>
                 {stockBajo > 0 ? "Requiere reabastecimiento" : "Niveles en regla"}
               </p>
@@ -222,13 +222,13 @@ export default function HomeInventario() {
           </div>
 
           {/* Card 3: Vencimiento Próximo */}
-          <div className={`bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5 ${vencimientoProximo > 0 ? "border-l-4 border-l-red-500" : ""}`}>
+          <div className={`bg-white rounded-3xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5 ${vencimientoProximo > 0 ? "border-l-4 border-l-red-500" : ""}`}>
             <div className={`p-4 rounded-xl ${vencimientoProximo > 0 ? "bg-red-50 text-red-600 animate-pulse" : "bg-slate-50 text-slate-600"}`}>
               <FontAwesomeIcon icon={faCalendarDays} className="text-2xl" />
             </div>
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Vencimientos Próximos</p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">{vencimientoProximo}</h3>
+              <h3 className="text-[25px] font-bold text-slate-900 mt-1">{vencimientoProximo}</h3>
               <p className={`text-xs font-medium mt-1 ${vencimientoProximo > 0 ? "text-red-600 font-semibold" : "text-slate-50"}`}>
                 {vencimientoProximo > 0 ? "Menos de 15 días restantes" : "Sin alertas inmediatas"}
               </p>
@@ -236,13 +236,13 @@ export default function HomeInventario() {
           </div>
 
           {/* Card 4: Valor de Inventario */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5">
+          <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-5">
             <div className="p-4 rounded-xl bg-green-50 text-green-600">
               <span className="text-2xl font-extrabold">S/</span>
             </div>
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Valor Estimado</p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">S/ {valorTotalInventario.toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
+              <h3 className="text-[20px] font-bold text-slate-900 mt-1">S/ {valorTotalInventario.toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
               <p className="text-xs text-green-600 font-medium mt-1">Precio venta al público</p>
             </div>
           </div>
@@ -370,9 +370,6 @@ export default function HomeInventario() {
         </div>
 
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
