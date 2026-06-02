@@ -9,7 +9,7 @@ export default function Footer() {
     const navigate = useNavigate();
 
     return (
-        <footer className="bg-blue-950 text-white mt-20 sm:mt-25 shadow-inner shadow-gray-200">
+        <footer className="bg-blue-950 text-white mt-20 sm:mt-30 shadow-inner shadow-gray-200">
             <div className="max-w-5xl mx-auto px-13 py-11">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-22 mb-8">

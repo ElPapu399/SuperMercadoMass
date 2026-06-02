@@ -123,7 +123,14 @@ export default function HomeLogin() {
                 {/* Lado Izquierdo: Información del Sistema */}
                 <div className="lg:col-span-7 text-left space-y-8">
                     <div>
-                        <span className="px-3.5 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-950 font-extrabold text-xs tracking-wider rounded-xl uppercase leading-none inline-block shadow-sm">
+                        <span className="px-3.5 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-950 font-extrabold text-xs tracking-wider rounded-xl uppercase leading-none inline-block shadow-sm"
+                            style={{
+                                boxShadow: `
+                                    0 0 10px rgba(0, 0, 0, 0.45),
+                                    0 0 30px rgba(0, 0, 0, 0.20)
+                                `
+                            }}
+                        >
                             Sistema de Gestión Interna
                         </span>
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-black mt-4 tracking-tight leading-none">
@@ -155,7 +162,7 @@ export default function HomeLogin() {
                     {/* Tarjetas Informativas Premium */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                         {/* Tarjeta 1 */}
-                        <div className="bg-gray-900/70 backdrop-blur-md rounded-2xl p-5 border border-slate-700/40 hover:border-yellow-400/30 transition-all duration-300 hover:translate-y-[-2px] group">
+                        <div className="bg-gray-900/50 backdrop-blur-md rounded-2xl p-5 border border-slate-700/40 hover:border-yellow-400/30 transition-all duration-300 hover:translate-y-[-2px] group">
                             <div className="p-3 bg-yellow-400/10 text-yellow-400 rounded-xl w-fit group-hover:bg-yellow-400 group-hover:text-slate-950 transition-colors">
                                 <FontAwesomeIcon icon={faBoxesStacked} className="text-lg" />
                             </div>
@@ -166,7 +173,7 @@ export default function HomeLogin() {
                         </div>
 
                         {/* Tarjeta 2 */}
-                        <div className="bg-gray-900/70 backdrop-blur-md rounded-2xl p-5 border border-slate-700/40 hover:border-orange-500/30 transition-all duration-300 hover:translate-y-[-2px] group">
+                        <div className="bg-gray-900/50 backdrop-blur-md rounded-2xl p-5 border border-slate-700/40 hover:border-orange-500/30 transition-all duration-300 hover:translate-y-[-2px] group">
                             <div className="p-3 bg-orange-500/10 text-orange-400 rounded-xl w-fit group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors">
                                 <FontAwesomeIcon icon={faTriangleExclamation} className="text-lg" />
                             </div>
@@ -177,7 +184,7 @@ export default function HomeLogin() {
                         </div>
 
                         {/* Tarjeta 3 */}
-                        <div className="bg-gray-900/70 backdrop-blur-md rounded-2xl p-5 border border-slate-700/40 hover:border-blue-400/30 transition-all duration-300 hover:translate-y-[-2px] group">
+                        <div className="bg-gray-900/50 backdrop-blur-md rounded-2xl p-5 border border-slate-700/40 hover:border-blue-400/30 transition-all duration-300 hover:translate-y-[-2px] group">
                             <div className="p-3 bg-blue-500/10 text-blue-400 rounded-xl w-fit group-hover:bg-blue-50/90 group-hover:text-slate-950 transition-colors">
                                 <FontAwesomeIcon icon={faChartPie} className="text-lg" />
                             </div>
@@ -191,7 +198,14 @@ export default function HomeLogin() {
 
                 {/* Lado Derecho: Formulario de Login Centrado (Glassmorphism) */}
                 <div className="lg:col-span-5 flex justify-center">
-                    <div className="bg-gray-900/70 backdrop-blur-xl border border-slate-700/50 p-9 rounded-3xl shadow-2xl w-full max-w-md relative overflow-hidden">
+                    <div className="bg-gray-900/70 backdrop-blur-xl border border-slate-700/50 p-9 rounded-3xl shadow-2xl w-full max-w-md relative overflow-hidden"
+                        style={{
+                            boxShadow: `
+                                0 0 80px rgba(255, 255, 255, 0.80),
+                                0 0 20px rgba(255, 255, 255, 0.30)
+                            `
+                        }}
+                    >
 
                         {/* Detalle decorativo de color en la parte superior del formulario */}
                         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
