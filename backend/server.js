@@ -35,7 +35,7 @@ try {
             connectionLimit: 10,
             queueLimit: 0
         });
-        
+
         // Probamos la conexión
         const connection = await pool.getConnection();
         console.log("✅ [DB] Conexión establecida exitosamente con MySQL");
@@ -58,7 +58,7 @@ try {
 app.get("/usuarios", async (req, res) => {
     try {
         if (dbConnected) {
-            const [rows] = await pool.query("SELECT id, usuario, nombre, rol FROM usuarios");
+            const [rows] = await pool.query("SELECT id, email AS usuario, nombre, rol FROM usuarios");
             return res.json(rows);
         } else {
             // Mapeamos los datos locales para no exponer la contraseña en este endpoint genérico
@@ -82,9 +82,9 @@ app.post("/api/login", async (req, res) => {
 
     // Validación básica de campos
     if (!usuario || !password) {
-        return res.status(400).json({ 
-            success: false, 
-            message: "Por favor, complete todos los campos" 
+        return res.status(400).json({
+            success: false,
+            message: "Por favor, complete todos los campos"
         });
     }
 
@@ -93,7 +93,7 @@ app.post("/api/login", async (req, res) => {
 
         if (dbConnected) {
             // 1. Intentar validar contra MySQL
-            const [rows] = await pool.query("SELECT * FROM usuarios WHERE usuario = ? LIMIT 1", [usuario]);
+            const [rows] = await pool.query("SELECT id, email AS usuario, password_hash AS password, nombre, rol FROM usuarios WHERE email = ? LIMIT 1", [usuario]);
             if (rows.length > 0) {
                 userRecord = rows[0];
             }
@@ -104,9 +104,9 @@ app.post("/api/login", async (req, res) => {
 
         // Si no se encuentra el usuario
         if (!userRecord) {
-            return res.status(401).json({ 
-                success: false, 
-                message: "Usuario o contraseña incorrectos" 
+            return res.status(401).json({
+                success: false,
+                message: "Usuario o contraseña incorrectos"
             });
         }
 
@@ -115,9 +115,9 @@ app.post("/api/login", async (req, res) => {
         const isMatch = (password === userRecord.password);
 
         if (!isMatch) {
-            return res.status(401).json({ 
-                success: false, 
-                message: "Usuario o contraseña incorrectos" 
+            return res.status(401).json({
+                success: false,
+                message: "Usuario o contraseña incorrectos"
             });
         }
 
@@ -145,9 +145,9 @@ app.post("/api/login", async (req, res) => {
 
     } catch (err) {
         console.error("Error en proceso de login:", err);
-        return res.status(500).json({ 
-            success: false, 
-            message: "Error interno del servidor en el proceso de autenticación" 
+        return res.status(500).json({
+            success: false,
+            message: "Error interno del servidor en el proceso de autenticación"
         });
     }
 });
@@ -171,4 +171,4 @@ app.get("/api/auth/verify", (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`🚀 Servidor backend en puerto ${PORT} funcionando`);
-});
+});
