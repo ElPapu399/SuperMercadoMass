@@ -1,0 +1,22 @@
+name: Supermercado Mass - Despliegue Continuo (CD)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Desplegar API en Producción
+        run: |
+          echo "Disparando despliegue de la API del supermercado..."
+          # curl -X POST ${{ secrets.RENDER_DEPLY_HOOK_URL }}
+
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    needs: deploy-backend
+    steps:
+      - name: Confirmación para Vercel
+        run: |
+          echo "El código se actualiz+o en main. Vercel detectará el cambio automáticamente y actualizará la web del inventario."

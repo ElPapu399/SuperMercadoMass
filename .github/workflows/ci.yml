@@ -1,0 +1,45 @@
+name: Supermercado Mass - Integración Continua (CI)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  frontend-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar pnpm
+        run: corepack enable
+      
+      - name: Instalar Dependencias Frontend
+        run: pnpm --filter ./frontend install
+      
+      - name: Validar Construcción (Build Test)
+        run: pnpm --filter ./frontend build
+
+  backend-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar pnpm
+        run: corepack enable
+
+      - name: Instalar Dependencias Backend
+        run: pnpm --filter ./backend install
