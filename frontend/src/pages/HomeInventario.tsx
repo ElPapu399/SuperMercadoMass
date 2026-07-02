@@ -113,10 +113,12 @@ export default function HomeInventario() {
       setLoading(true);
       setError("");
 
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
       const [resProds, resCats, resProvs] = await Promise.all([
-        fetch("http://localhost:3001/api/productos"),
-        fetch("http://localhost:3001/api/categorias"),
-        fetch("http://localhost:3001/api/proveedores")
+        fetch(`${API_URL}/api/productos`),
+        fetch(`${API_URL}/api/categorias`),
+        fetch(`${API_URL}/api/proveedores`)
       ]);
 
       if (!resProds.ok) throw new Error("Error al obtener la lista de productos");
