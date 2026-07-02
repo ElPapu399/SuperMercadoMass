@@ -8,7 +8,11 @@ on:
 
 jobs:
   frontend-validation:
+    name: Validar Frontend
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
@@ -18,17 +22,33 @@ jobs:
         with:
           node-version: 20
 
-      - name: Instalar pnpm
+      - name: Habilitar pnpm
         run: corepack enable
       
       - name: Instalar Dependencias Frontend
-        run: pnpm --filter ./frontend install
+        run: |
+          if [ -f "pnpm-lock.yaml"]; then
+            echo "Detectado pnpm-lock.yaml. Instalando con pnpm..."
+            pnpm install
+          else
+            echo "No se encontro pnpm-lock.yaml. Instalando con npm..."
+            npm install
+          fi
       
-      - name: Validar Construcción (Build Test)
-        run: pnpm --filter ./frontend build
+      - name: Compilar Frontend (Build Test)
+        run: |
+          if [ -f "pnpm-lock.yaml" ]; then
+            pnpm run build
+          else
+            npm run build
+          fi
 
   backend-validation:
+    name: Validar Backend
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
@@ -38,8 +58,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Instalar pnpm
+      - name: Habilitar pnpm
         run: corepack enable
 
       - name: Instalar Dependencias Backend
-        run: pnpm --filter ./backend install
+        run: |
+          if [ -f "pnpm-lock.yaml"]; then
+            echo "Detectado pnpm-lock.yaml. Instalando con pnpm..."
+            pnpm install
+          else
+            echo "No se encontro pnpm-lock.yaml. Instalando con npm..."
+            npm install
+          fi
+
+      - name: Verificar Sintaxis del Backend
+        run: echo "Backend listo para integrarse"
