@@ -45,9 +45,11 @@ export default function MetricasPage() {
       setLoading(true);
       setError("");
 
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
       const [resProds, resCats] = await Promise.all([
-        fetch("http://localhost:3001/api/productos"),
-        fetch("http://localhost:3001/api/categorias")
+        fetch(`${API_URL}/api/productos`),
+        fetch(`${API_URL}/api/categorias`)
       ]);
 
       if (!resProds.ok) throw new Error("Error al obtener la lista de productos");

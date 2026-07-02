@@ -37,7 +37,9 @@ export default function VencimientosPage() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/api/productos");
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
+      const response = await fetch(`${API_URL}/api/productos`);
       if (!response.ok) throw new Error("Error al obtener la lista de productos");
       const prodsData = await response.json();
       setProductos(prodsData);
