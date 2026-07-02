@@ -22,12 +22,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Habilitar pnpm
-        run: corepack enable
+      - name: Instalar pnpm de forma global
+        run: npm install -g pnpm
       
       - name: Instalar Dependencias Frontend
         run: |
-          if [ -f "pnpm-lock.yaml"]; then
+          if [ -f "pnpm-lock.yaml" ]; then
             echo "Detectado pnpm-lock.yaml. Instalando con pnpm..."
             pnpm install
           else
@@ -58,8 +58,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Habilitar pnpm
-        run: corepack enable
+      - name: Instalar pnpm de manera global
+        run: npm install -g pnpm
 
       - name: Instalar Dependencias Backend
         run: |
